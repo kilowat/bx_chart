@@ -1,2 +1,1 @@
-# bx_chart
-<h1>Гаджет диаграмм заказов для cms Bitrix</h1>
+# bx_chart Гаджет диаграмм заказов для cms Bitrix
