@@ -54,7 +54,7 @@ class AvgChartOrderBx extends ChartBX{
 
     public function render()
     {
-        $this->_label = "Средний чек (Сумма / кол-во)";
+        $this->_label =  $this->_userConfig["LABEL_LANG_WORDS"]["GD_INSERVES_CHART_AVG"];
         parent::render();
     }
 }

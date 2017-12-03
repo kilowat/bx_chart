@@ -48,7 +48,7 @@ class OrderPayedChartBx extends  ChartBX{
 
     public function render()
     {
-        $this->_label = "% Оплаченных заказов";
+        $this->_label = $this->_userConfig["LABEL_LANG_WORDS"]["GD_INSERVES_CHART_PROCENT_PAYED_ORDER"];
         $this->_stepSize = 10;
         parent::render();
     }
