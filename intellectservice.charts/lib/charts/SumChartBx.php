@@ -60,7 +60,7 @@ class SumChartBx extends  ChartBX
 
         $this->_data[] =
             array(
-                "label" => $this->_userConfig["LABEL_LANG_WORDS"]["GD_INSERVES_CHART_PAYED_ORDER"],
+                "label" => $this->_userConfig["LABEL_LANG_WORDS"]["GD_INSERVES_CHART_TOTAL_PAYED_ORDER"],
                 "data" => $resQuery,
                 "backgroundColor" => "rgba(100, 200, 132, 0.2)",
                 "borderColor" => "rgba(100, 200, 132, 0.9)",
