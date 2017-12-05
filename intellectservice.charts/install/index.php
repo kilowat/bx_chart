@@ -3,7 +3,7 @@ IncludeModuleLangFile(__FILE__);
 Class intellectservice_charts extends CModule
 {
 	const MODULE_ID = 'intellectservice.charts';
-	var $MODULE_ID = 'intellectservice.charts'; 
+	var $MODULE_ID = 'intellectservice.charts';
 	var $MODULE_VERSION;
 	var $MODULE_VERSION_DATE;
 	var $MODULE_NAME;
