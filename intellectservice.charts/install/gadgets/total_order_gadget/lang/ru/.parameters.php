@@ -15,5 +15,4 @@ $MESS["GD_INSERVES_CHART_PERIOD_TYPE_VALUES_DAYS"] = "Дни";
 $MESS["GD_INSERVES_CHART_PERIOD_COUNT"] = "За какое время";
 $MESS["GD_INSERVES_CHART_HIGHT"] = "Высота блока";
 $MESS["GD_INSERVES_CHART_WIDTH"] = "Ширина блока";
-
-
+$MESS["GD_INSERVES_CHART_CACHE_TIME"] = "Время кэширования в секундах";

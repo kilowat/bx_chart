@@ -44,5 +44,10 @@ $arParameters = Array(
             "TYPE" => "STRING",
             "DEFAULT" => 800,
         ),
+        "CACHE_TIME"=> Array(
+            "NAME" => GetMessage("GD_INSERVES_CHART_CACHE_TIME"),
+            "TYPE" => "STRING",
+            "DEFAULT" => 3600,
+        ),
     ),
 );

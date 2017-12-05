@@ -25,7 +25,8 @@ $label_lang_words = array(
 
 $userConf = array(
         "diagram_view" => $diagram_view,
-        "LABEL_LANG_WORDS" => $label_lang_words
+        "LABEL_LANG_WORDS" => $label_lang_words,
+        "CACHE_TIME" => $arGadgetParams["CACHE_TIME"],
         );
 
 $orderChart = \Intellectservice\Chart\ChartFactory::Create($chartType, $chartPeriod, $countPeriod, $userConf);

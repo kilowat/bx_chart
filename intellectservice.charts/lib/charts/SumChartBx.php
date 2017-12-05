@@ -11,24 +11,33 @@ namespace Intellectservice\Chart\Charts;
 
 class SumChartBx extends  ChartBX
 {
+    private $sumOrderPayedId = "sum_order_payed_id";
+    private $sumOrderId = "sum_order_id";
 
     public function getAxisY()
     {
         $resQuery = array();
-        $count = count($this->_chartPeriod->getAxisItem());
 
-        for ($i = 0; $count > $i; $i++) {
+        if($this->_obCache->InitCache($this->_cacheTime, $this->getCacheId($this->sumOrderId), $this->_cacheDir)){
+          $resQuery = $this->_obCache->GetVars();
+        }else{
+          $count = count($this->_chartPeriod->getAxisItem());
+          for ($i = 0; $count > $i; $i++) {
 
-            $select = array(new \Bitrix\Main\Entity\ExpressionField("PRICE", "SUM(PRICE)"));
+              $select = array(new \Bitrix\Main\Entity\ExpressionField("PRICE", "SUM(PRICE)"));
 
-            $filter = array(
-                ">=DATE_INSERT" => $this->_chartPeriod->getFilterMinDate($i),
-                "<=DATE_INSERT" => $this->_chartPeriod->getFilterMaxDate($i));
+              $filter = array(
+                  ">=DATE_INSERT" => $this->_chartPeriod->getFilterMinDate($i),
+                  "<=DATE_INSERT" => $this->_chartPeriod->getFilterMaxDate($i));
 
-            $resQueryCurrent = $this->queryFromOrderTable($select, $filter);
+              $resQueryCurrent = $this->queryFromOrderTable($select, $filter);
 
-            $resQuery[$i] = intval($resQueryCurrent["PRICE"]);
+              $resQuery[$i] = intval($resQueryCurrent["PRICE"]);
+          }
         }
+        $this->_obCache->StartDataCache($this->_cacheTime, $this->getCacheId($this->sumOrderId), $this->_cacheDir);
+        $this->_obCache->EndDataCache($resQuery);
+
         return $resQuery;
     }
 
@@ -43,21 +52,25 @@ class SumChartBx extends  ChartBX
     private function addPayedData()
     {
         $resQuery = array();
-        $count = count($this->_chartPeriod->getAxisItem());
+        if($this->_obCache->InitCache($this->_cacheTime, $this->getCacheId($this->sumOrderPayedId), $this->_cacheDir)){
+          $resQuery = $this->_obCache->GetVars();
+        }else{
+          $count = count($this->_chartPeriod->getAxisItem());
+          for($i = 0 ; $count>$i;$i++){
 
-        for($i = 0 ; $count>$i;$i++){
+              $select = array(new \Bitrix\Main\Entity\ExpressionField('PRICE', 'SUM(PRICE)'));
+              $filter = array(
+                  ">=DATE_INSERT"=> $this->_chartPeriod->getFilterMinDate($i),
+                  "<=DATE_INSERT"=> $this->_chartPeriod->getFilterMaxDate($i),
+                  "=PAYED" => "Y");
 
-            $select = array(new \Bitrix\Main\Entity\ExpressionField('PRICE', 'SUM(PRICE)'));
-            $filter = array(
-                ">=DATE_INSERT"=> $this->_chartPeriod->getFilterMinDate($i),
-                "<=DATE_INSERT"=> $this->_chartPeriod->getFilterMaxDate($i),
-                "=PAYED" => "Y");
+              $resQueryCurrent = $this->queryFromOrderTable($select, $filter);
 
-            $resQueryCurrent = $this->queryFromOrderTable($select, $filter);
-
-            $resQuery[$i] = $resQueryCurrent["PRICE"];
+              $resQuery[$i] = $resQueryCurrent["PRICE"];
+          }
+          $this->_obCache->StartDataCache($this->_cacheTime, $this->getCacheId($this->sumOrderPayedId), $this->_cacheDir);
+          $this->_obCache->EndDataCache($resQuery);
         }
-
         $this->_data[] =
             array(
                 "label" => $this->_userConfig["LABEL_LANG_WORDS"]["GD_INSERVES_CHART_TOTAL_PAYED_ORDER"],
@@ -68,4 +81,3 @@ class SumChartBx extends  ChartBX
             );
     }
 }
-

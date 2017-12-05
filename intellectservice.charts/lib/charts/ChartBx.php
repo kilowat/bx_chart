@@ -16,11 +16,21 @@ abstract class ChartBX{
     protected $_data = array();
     private $_config = array();
     protected $_userConfig = array();
+    protected $_obCache;
+    protected $_cacheTime;
+    protected $_cacheDir = "intservice";
+    private $_cacheId = 3600; // sec default cache
 
     public function __construct(ChartPeriod $chartPeriod, array $userConfig = array())
     {
         $this->_chartPeriod = $chartPeriod;
         $this->_userConfig = $userConfig;
+        $this->_obCache = \Bitrix\Main\Data\Cache::createInstance();
+        $this->_cacheTime = 30;
+        $this->_cacheId = md5(serialize($this->_chartPeriod));
+
+        if(!empty($userConfig["CACHE_TIME"]))
+          $this->_cacheTime = $userConfig["CACHE_TIME"];
     }
 
     public function getAxisX()
@@ -29,6 +39,10 @@ abstract class ChartBX{
     }
 
     public abstract function getAxisY();
+
+    protected function getCacheId($id){
+      return md5($this->_cacheId."_".$id);
+    }
 
     protected function queryFromOrderTable($select, $filter){
 
