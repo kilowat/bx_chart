@@ -62,7 +62,7 @@ abstract class ChartBX
     public  function render()
     {
         $this->initConfig();
-        echo json_encode($this->_config);
+        echo \Bitrix\Main\Web\Json::encode($this->_config);
     }
 
     private function initConfig()
