@@ -9,7 +9,8 @@
 namespace Intellectservice\Chart\Charts;
 
 
-class ChartTypeEnum{
+class ChartTypeEnum
+{
     /*
      * Total orders
      */

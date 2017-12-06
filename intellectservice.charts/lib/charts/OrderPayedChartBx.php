@@ -1,19 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kilowat
- * Date: 19.11.2017
- * Time: 13:39
- */
-
 namespace Intellectservice\Chart\Charts;
 
-
-class OrderPayedChartBx extends  ChartBX{
-    /*
-     * real payed orders in procent
-     */
-
+class OrderPayedChartBx extends  ChartBX
+{
     private $orderPayedId = "order_payed_procent_id";
 
     public function getAxisY()

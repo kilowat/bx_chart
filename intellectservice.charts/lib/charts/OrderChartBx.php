@@ -1,16 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kilowat
- * Date: 19.11.2017
- * Time: 13:39
- */
-
 namespace Intellectservice\Chart\Charts;
 
-
-class OrderChartBx extends ChartBX{
-
+class OrderChartBx extends ChartBX
+{
     private $orderTotalId = "total_order_id";
     private $orderPayedId = "payed_order_id";
 

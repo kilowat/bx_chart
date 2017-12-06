@@ -1,18 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kilowat
- * Date: 19.11.2017
- * Time: 13:41
- */
-
 namespace Intellectservice\Chart\Charts;
 
-
-class AvgChartOrderBx extends ChartBX{
-    /*
-     * Avg order sum / orderCount
-     */
+class AvgChartOrderBx extends ChartBX
+{
     private $avg_chart_id = "avg";
 
     public function getAxisY()

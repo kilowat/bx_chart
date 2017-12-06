@@ -1,5 +1,5 @@
 <?php
-if(!CModule::IncludeModule("sale") || !CModule::IncludeModule("currency") || !CModule::IncludeModule("intellectservice.charts")
+if(!CModule::IncludeModule("sale") || !CModule::IncludeModule("intellectservice.charts")
 ) throw  new Exception("Error include modules");
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
@@ -24,7 +24,7 @@ $label_lang_words = array(
 );
 
 $userConf = array(
-        "diagram_view" => $diagram_view,
+        "DIAGRAM_VIEW" => $diagram_view,
         "LABEL_LANG_WORDS" => $label_lang_words,
         "CACHE_TIME" => $arGadgetParams["CACHE_TIME"],
         );
@@ -40,5 +40,4 @@ $orderChart = \Intellectservice\Chart\ChartFactory::Create($chartType, $chartPer
     var is_ctx = document.getElementById("<?=spl_object_hash($orderChart)?>").getContext('2d');
     var is_settings = <?$orderChart->render()?>;
     var chartBX = new Chart(is_ctx, is_settings );
-
 </script>

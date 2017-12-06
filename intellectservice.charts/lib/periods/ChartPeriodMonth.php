@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kilowat
- * Date: 19.11.2017
- * Time: 13:43
- */
-
 namespace Intellectservice\Chart\Periods;
 
-
-class ChartPeriodMonth extends ChartPeriod{
+class ChartPeriodMonth extends ChartPeriod
+{
     protected $_format = "m.y";
 
     public function __construct($count = 6)
@@ -17,7 +10,8 @@ class ChartPeriodMonth extends ChartPeriod{
         parent::__construct($count);
     }
 
-    protected  function generateDate(){
+    protected  function generateDate()
+    {
         $days = 0;
 
         for ($i = $this->_count; $i > -1; $i--) {
@@ -31,7 +25,8 @@ class ChartPeriodMonth extends ChartPeriod{
             $this->_filterMaxDate[] = ConvertTimeStamp(AddToTimeStamp(array("DD" => "-" . $days + $this->getDaysInMonth($i) - date('d'), "SS" => -1), mktime(0, 0, 0, date("n"), date("j"), date("Y"))), "FULL");
         }
     }
-    private function getDaysInMonth($i = 0){
+    private function getDaysInMonth($i = 0)
+    {
         return  date('t', mktime(0,0,0,date('m')-$i,1,date('y')));
     }
 }

@@ -3,8 +3,8 @@ namespace Intellectservice\Chart\Charts;
 
 use Intellectservice\Chart\Periods\ChartPeriod;
 
-abstract class ChartBX{
-
+abstract class ChartBX
+{
     protected $_defaultBackgroundColor = "rgba(255, 99, 132, 0.2)";
     protected $_defaultBorderColor = "rgba(255, 99, 132, 1)";
     protected $_chartPeriod;
@@ -14,12 +14,12 @@ abstract class ChartBX{
     protected $_label = "set label name";
     protected $_stepSize;
     protected $_data = array();
-    private $_config = array();
     protected $_userConfig = array();
     protected $_obCache;
     protected $_cacheTime;
     protected $_cacheDir = "intservice";
     private $_cacheId = 3600; // sec default cache
+    private $_config = array();
 
     public function __construct(ChartPeriod $chartPeriod, array $userConfig = array())
     {
@@ -40,12 +40,13 @@ abstract class ChartBX{
 
     public abstract function getAxisY();
 
-    protected function getCacheId($id){
+    protected function getCacheId($id)
+    {
       return md5($this->_cacheId."_".$id);
     }
 
-    protected function queryFromOrderTable($select, $filter){
-
+    protected function queryFromOrderTable($select, $filter)
+    {
         $resOrder = \Bitrix\Sale\Internals\OrderTable::getList(array(
             'select' => $select,
             'filter' => $filter
@@ -58,17 +59,19 @@ abstract class ChartBX{
         return $result;
     }
 
-    public  function render(){
+    public  function render()
+    {
         $this->initConfig();
         echo json_encode($this->_config);
     }
 
-    private function initConfig(){
+    private function initConfig()
+    {
         $this->_backgroundColor = $this->_defaultBackgroundColor;
         $this->_borderColor = $this->_defaultBorderColor;
 
-        if(!empty($this->_userConfig["diagram_view"])){
-            $this->_type = $this->_userConfig["diagram_view"];
+        if(!empty($this->_userConfig["DIAGRAM_VIEW"])){
+            $this->_type = $this->_userConfig["DIAGRAM_VIEW"];
         }
 
         $this->_data[] =

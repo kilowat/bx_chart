@@ -9,7 +9,8 @@
 namespace Intellectservice\Chart\Periods;
 
 
-abstract class ChartPeriod{
+abstract class ChartPeriod
+{
 
     protected $_count;
     protected $_filterMinDate = array();
@@ -23,8 +24,8 @@ abstract class ChartPeriod{
         $this->generateDate();
     }
 
-    protected  function generateDate(){
-
+    protected  function generateDate()
+    {
         for ($i = $this->_count; $i > -1; $i--) {
             $this->_axisXitem[] = date($this->_format, strtotime('-' . $i . ' days'));
             $this->_filterMinDate[] = ConvertTimeStamp(AddToTimeStamp(array("DD" => "-" . $i), mktime(0, 0, 0, date("n"), date("j"), date("Y"))), "FULL");

@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kilowat
- * Date: 19.11.2017
- * Time: 13:44
- */
-
 namespace Intellectservice\Chart;
-
 
 use Intellectservice\Chart\Charts\AvgChartOrderBx;
 use Intellectservice\Chart\Charts\ChartTypeEnum;
@@ -19,10 +11,10 @@ use Intellectservice\Chart\Periods\ChartPeriodEnum;
 use Intellectservice\Chart\Periods\ChartPeriodMonth;
 use Intellectservice\Chart\Periods\ChartPeriodWeek;
 
-class ChartFactory{
-
-    public static function Create($type, $period, $countPeriod, $userConfig = array()){
-
+class ChartFactory
+{
+    public static function Create($type, $period, $countPeriod, $userConfig = array())
+    {
         if($period == ChartPeriodEnum::DAYS){
             $p = new ChartPeriodDays($countPeriod);
         }

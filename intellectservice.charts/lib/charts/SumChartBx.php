@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kilowat
- * Date: 19.11.2017
- * Time: 13:40
- */
-
 namespace Intellectservice\Chart\Charts;
-
 
 class SumChartBx extends  ChartBX
 {
@@ -22,8 +14,8 @@ class SumChartBx extends  ChartBX
           $resQuery = $this->_obCache->GetVars();
         }else{
           $count = count($this->_chartPeriod->getAxisItem());
-          for ($i = 0; $count > $i; $i++) {
 
+          for ($i = 0; $count > $i; $i++) {
               $select = array(new \Bitrix\Main\Entity\ExpressionField("PRICE", "SUM(PRICE)"));
 
               $filter = array(
@@ -56,8 +48,8 @@ class SumChartBx extends  ChartBX
           $resQuery = $this->_obCache->GetVars();
         }else{
           $count = count($this->_chartPeriod->getAxisItem());
-          for($i = 0 ; $count>$i;$i++){
 
+          for($i = 0 ; $count>$i;$i++){
               $select = array(new \Bitrix\Main\Entity\ExpressionField('PRICE', 'SUM(PRICE)'));
               $filter = array(
                   ">=DATE_INSERT"=> $this->_chartPeriod->getFilterMinDate($i),
