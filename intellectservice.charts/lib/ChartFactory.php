@@ -10,6 +10,7 @@ use Intellectservice\Chart\Periods\ChartPeriodDays;
 use Intellectservice\Chart\Periods\ChartPeriodEnum;
 use Intellectservice\Chart\Periods\ChartPeriodMonth;
 use Intellectservice\Chart\Periods\ChartPeriodWeek;
+use Intellectservice\Chart\Periods\ChartPeriodYears;
 
 class ChartFactory
 {
@@ -23,6 +24,9 @@ class ChartFactory
         }
         if($period == ChartPeriodEnum::MONTH){
             $p = new ChartPeriodMonth($countPeriod);
+        }
+        if($period == ChartPeriodEnum::YEARS){
+            $p = new ChartPeriodYears($countPeriod);
         }
         if($type == ChartTypeEnum::CHART_ORDER){
             return new OrderChartBx($p, $userConfig);

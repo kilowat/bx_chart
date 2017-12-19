@@ -15,4 +15,8 @@ class ChartPeriodEnum
      * Month
      */
     const MONTH = "MONTH";
+    /*
+    *Years
+    */
+    const YEARS = "YEARS";
 }

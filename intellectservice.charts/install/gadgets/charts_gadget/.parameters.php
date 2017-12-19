@@ -24,6 +24,7 @@ $arParameters = Array(
             "NAME" => GetMessage("GD_INSERVES_CHART_PERIOD_TYPE_NAME"),
             "TYPE" => "LIST",
             "VALUES" => array(
+                "YEARS" => GetMessage("GD_INSERVES_CHART_PERIOD_TYPE_VALUES_YEARS"),
                 "MONTH" => GetMessage("GD_INSERVES_CHART_PERIOD_TYPE_VALUES_MONTH"),
                 "WEEKS" => GetMessage("GD_INSERVES_CHART_PERIOD_TYPE_VALUES_WEEK"),
                 "DAYS" => GetMessage("GD_INSERVES_CHART_PERIOD_TYPE_VALUES_DAYS"),

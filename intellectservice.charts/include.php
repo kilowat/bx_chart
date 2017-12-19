@@ -14,6 +14,6 @@ Loader::registerAutoLoadClasses($module = null, [
     'Intellectservice\Chart\Periods\ChartPeriodDays' => '/bitrix/modules/intellectservice.charts/lib/periods/ChartPeriodDays.php',
     'Intellectservice\Chart\Periods\ChartPeriodMonth' => '/bitrix/modules/intellectservice.charts/lib/periods/ChartPeriodMonth.php',
     'Intellectservice\Chart\Periods\ChartPeriodWeek' => '/bitrix/modules/intellectservice.charts/lib/periods/ChartPeriodWeek.php',
+    'Intellectservice\Chart\Periods\ChartPeriodYears' => '/bitrix/modules/intellectservice.charts/lib/periods/ChartPeriodYears.php',
 
 ]);
-
