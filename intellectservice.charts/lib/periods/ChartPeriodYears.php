@@ -27,14 +27,6 @@ class ChartPeriodYears extends ChartPeriod
     }
     private function getDaysInYear($i = 0)
     {
-      if($this->isLeap($i))
-        return 366;
-      else {
-        return 365;
-      }
-    }
-    private function isLeap($year)
-    {
-      return date("L", mktime(0,0,0, 7,7, $year));
+        return 365 + date("L", mktime(0,0,0, 7,7, $i));
     }
 }
